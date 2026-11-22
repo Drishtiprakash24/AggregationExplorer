@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MongoDB Aggregation Explorer</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>MongoDB Aggregation Explorer</h1>
+        <p>Interactive Pipeline Processing and Analysis System</p>
+    </header>
+
+    <main>
+
+        <section class="panel">
+
+            <h2>Aggregation Pipeline Builder</h2>
+
+            <label>Select Collection</label>
+
+            <select id="collection">
+                <option value="users">Users</option>
+                <option value="students">Students</option>
+                <option value="address">Address</option>
+            </select>
+
+            <label>Select Aggregation Stage</label>
+
+            <select id="stage">
+                <option value="$match">$match</option>
+                <option value="$group">$group</option>
+                <option value="$unwind">$unwind</option>
+                <option value="$project">$project</option>
+                <option value="$sort">$sort</option>
+                <option value="$limit">$limit</option>
+                <option value="$sample">$sample</option>
+                <option value="$lookup">$lookup</option>
+            </select>
+
+            <label>Stage Configuration (JSON)</label>
+
+            <textarea id="configuration" rows="7">
+{"name": "Harrison"}
+            </textarea>
+
+            <button onclick="addStage()">Add Stage</button>
+
+            <h3>Pipeline Stages</h3>
+
+            <pre id="pipelineDisplay">[]</pre>
+
+            <button onclick="executePipeline()">
+                Execute Pipeline
+            </button>
+
+            <button class="secondary" onclick="clearPipeline()">
+                Clear Pipeline
+            </button>
+
+        </section>
+
+        <section class="panel">
+
+            <h2>Execution Results</h2>
+
+            <p id="status">Waiting for execution...</p>
+
+            <div class="result-info">
+                <strong>Result Count:</strong>
+                <span id="resultCount">0</span>
+            </div>
+
+            <pre id="results">No results available.</pre>
+
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}">
+    </script>
+
+</body>
+
+</html>
