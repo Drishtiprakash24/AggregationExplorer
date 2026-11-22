@@ -58,8 +58,3 @@ The project helps users understand how aggregation pipelines process and analyze
 
 ## Database
 The application uses a local MongoDB database. Follow the project's database initialization instructions or scripts, if provided, to prepare the sample collections.
-
-## Academic Project
-Developed as an individual M.Tech AI & Data Science project.
-
-**Note:** Update this README if your application uses different startup commands, database settings, or initialization steps.
